@@ -1,0 +1,20 @@
+name: my_first_test
+on:
+  pull_request:
+  push:
+      branches: [main]
+jobs:
+  ci_job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - name: load virtual machine
+        uses: actions/checkout@v4
+      - name: steup node env
+        uses: actions/setup-node@v4
+      - name: install depe
+        run: npm i
+      - name: run index.js
+        run: node index.js
